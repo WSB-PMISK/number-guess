@@ -10,7 +10,7 @@ jobs:
         run: |
           echo "Branch: $GITHUB_REF"
           BRANCH_NAME="${GITHUB_REF#refs/heads/}"
-          if [[ ! "$BRANCH_NAME" =~ ^PMISK-\d{1,6}$; then
+          if [[ ! "$BRANCH_NAME" =~ ^PMISK-\d{1,6}$ ]]; then
             echo "❌ Invalid branch name: $BRANCH_NAME"
             exit 1
           else
