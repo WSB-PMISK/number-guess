@@ -11,10 +11,10 @@ jobs:
       - name: Check if branch name is valid
         run: |
           BRANCH_NAME="${{ github.head_ref }}"
-          echo "Branch: $BRANCH_NAME"
+          echo "Checking branch: $BRANCH_NAME"
           if [[ ! "$BRANCH_NAME" =~ $BRANCH_PATTERN_NAME ]]; then
-            echo "❌ Invalid branch name: $BRANCH_NAME"
+            echo "❌ Invalid branch name"
             exit 1
           else
-            echo "✅ Valid branch name: $BRANCH_NAME"
+            echo "✅ Valid branch name"
           fi
