@@ -23,8 +23,14 @@ public class UserHandler(IHandler handler) {
 
         return answer;
     }
-
+    
     public string GetChoiceList(string[] choices) {
-        return string.Join("\n", choices);
+        var list = "";
+
+        for (var i = 1;i<=choices.Length;i++) {
+            list += $"  {i}. {choices[i-1]}\n";
+        }
+
+        return list.Substring(0, list.Length - 1);
     }
 }

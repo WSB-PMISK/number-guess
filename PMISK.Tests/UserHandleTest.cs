@@ -21,10 +21,11 @@ public class UserHandleTest
     }
 
     [Theory]
-    [InlineData(new string[] {"test", "choice"}, "test\nchoice")]
+    [InlineData(new string[] {"test", "choice"}, "  1. test\n  2. choice")]
+    [InlineData(new string[] {"more", "test", "choices"}, "  1. more\n  2. test\n  3. choices")]
     public void GetChoiceListTest(string[] choices, string expectedResult) {
         var handler = new Handler();
         var userHandler = new UserHandler(handler);
-        Assert.Equal(userHandler.GetChoiceList(choices), expectedResult);
+        Assert.Equal(expectedResult, userHandler.GetChoiceList(choices));
     }
 }
