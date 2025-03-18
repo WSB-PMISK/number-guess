@@ -1,0 +1,18 @@
+name: Check Branch Name
+on: pull_request
+
+jobs:
+  check_branch_name:
+    name: check_branch_name
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if branch name is valid
+        run: |
+          BRANCH_NAME="${{ github.head_ref }}"
+          echo "Checking branch: $BRANCH_NAME"
+          if [[ "$BRANCH_NAME" =~ ^PMISK-[0-9]{1,6}$ ]]; then
+            echo "✅ Valid branch name"
+          else
+            echo "❌ Invalid branch name"
+            exit 1
+          fi
