@@ -12,7 +12,7 @@ jobs:
         run: |
           BRANCH_NAME="${{ github.head_ref }}"
           echo "Branch: $BRANCH_NAME"
-          if [[ ! "$BRANCH_NAME" =~ $"BRANCH_PATTERN_NAME" ]]; then
+          if [[ ! "$BRANCH_NAME" =~ $BRANCH_PATTERN_NAME ]]; then
             echo "❌ Invalid branch name: $BRANCH_NAME"
             exit 1
           else
