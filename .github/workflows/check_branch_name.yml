@@ -5,15 +5,12 @@ jobs:
   check_branch_name:
     name: check_branch_name
     runs-on: ubuntu-latest
-    env:
-      BRANCH_PATTERN_NAME: '^PMISK-\d{1,6}$'
     steps:
       - name: Check if branch name is valid
         run: |
           BRANCH_NAME="${{ github.head_ref }}"
           echo "Checking branch: $BRANCH_NAME"
-          echo $BRANCH_PATTERN_NAME
-          if [[ ! "$BRANCH_NAME" =~ $BRANCH_PATTERN_NAME ]]; then
+          if [[ ! "PMISK-9" =~ ^PMISK-\d{1,6}$ ]]; then
             echo "❌ Invalid branch name"
             exit 1
           else
