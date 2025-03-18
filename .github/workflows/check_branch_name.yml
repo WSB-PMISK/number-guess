@@ -10,9 +10,9 @@ jobs:
         run: |
           BRANCH_NAME="${{ github.head_ref }}"
           echo "Checking branch: $BRANCH_NAME"
-          if [[ ! "PMISK-9" =~ ^PMISK-\d{1,6}$ ]]; then
+          if [[ "$BRANCH_NAME" =~ ^PMISK-[0-9]{1,6}$ ]]; then
+            echo "✅ Valid branch name"
+          else
             echo "❌ Invalid branch name"
             exit 1
-          else
-            echo "✅ Valid branch name"
           fi
